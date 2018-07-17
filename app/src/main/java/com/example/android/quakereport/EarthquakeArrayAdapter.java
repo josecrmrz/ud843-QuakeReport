@@ -1,8 +1,10 @@
 package com.example.android.quakereport;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +30,15 @@ public class EarthquakeArrayAdapter extends ArrayAdapter<Earthquake> {
 
         Earthquake earthquake = getItem(position);
 
-        ((TextView)view.findViewById(R.id.tvMagnitude)).setText(String.valueOf(earthquake.getMagnitude()));
+
+        ((TextView)view.findViewById(R.id.tvMagnitude)).setText(earthquake.getMagnitude());
+        ((TextView)view.findViewById(R.id.tvLocationOffset)).setText(earthquake.getLocationOffset());
         ((TextView)view.findViewById(R.id.tvLocation)).setText(earthquake.getLocation());
-        ((TextView)view.findViewById(R.id.tvDate)).setText(earthquake.getDate());
+        ((TextView)view.findViewById(R.id.tvDate)).setText(earthquake.getFormatDate());
+        ((TextView)view.findViewById(R.id.tvTime)).setText(earthquake.getFormatTime());
+
+        GradientDrawable magnitudeCircle = (GradientDrawable) view.findViewById(R.id.tvMagnitude).getBackground();
+        magnitudeCircle.setColor(ContextCompat.getColor(getContext(), earthquake.getMagnitudeColor()));
 
         return view;
     }
