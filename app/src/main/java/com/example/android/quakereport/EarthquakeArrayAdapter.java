@@ -30,7 +30,6 @@ public class EarthquakeArrayAdapter extends ArrayAdapter<Earthquake> {
 
         Earthquake earthquake = getItem(position);
 
-
         ((TextView)view.findViewById(R.id.tvMagnitude)).setText(earthquake.getMagnitude());
         ((TextView)view.findViewById(R.id.tvLocationOffset)).setText(earthquake.getLocationOffset());
         ((TextView)view.findViewById(R.id.tvLocation)).setText(earthquake.getLocation());
