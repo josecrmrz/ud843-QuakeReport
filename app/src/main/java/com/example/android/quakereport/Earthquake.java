@@ -48,7 +48,7 @@ public class Earthquake {
     }
 
     public String getFormatDate() {
-        return new SimpleDateFormat("MMM DD, yyyy", Locale.US).format(new Date(mUnixTime));
+        return new SimpleDateFormat("MMM dd, yyyy", Locale.US).format(new Date(mUnixTime));
     }
 
     public String getFormatTime() {
